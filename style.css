@@ -1,0 +1,284 @@
+/* Styling Body */
+body {
+    font-family: 'Arial', sans-serif; 
+    line-height: 1.6;  /* Increases the spacing so the site is easier to read */
+    margin: 0;
+    padding: 0;
+    background-color: white; 
+}
+
+/* Styling Headers */
+header {
+    background-color: #000080; 
+    color: white;
+    padding: 20px; /* Reducedpadding  */
+    text-align: center;
+}
+
+/* Navigation Bar */
+nav ul {
+    list-style: none; /* no bullet points */
+    padding: 0; 
+}
+
+nav ul li {
+    display: inline-block; 
+    margin: 0 10px; /* Reduced margin  */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 1s ease; /* Added transitions so users know that they are hovering over right thing */
+}
+
+nav ul li a:hover {
+    color: #ffdd57; /*  Changes color to tell user where they are hovering over */
+}
+
+/*  For prefers-reduced-motion the transition does not occur color instantly changes */
+@media (prefers-reduced-motion: reduce) {
+    nav ul li a {
+        transition: none; 
+    } 
+    
+    nav ul li a:hover {
+        color: #ffdd57; 
+    }
+}
+
+
+section {
+    padding: 20px;
+}
+
+
+#meetSummary {
+    background-color: white; 
+    padding: 15px;
+    border-radius: 8px;
+}
+
+
+#meetPhotoBook {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; /* Center */
+}
+
+/* photos for mobile */
+.photo {
+    flex: 1 1 100%; /* photo can grow/shrink to adapt to screen size */
+    margin: 5px;
+}
+
+img {
+    width: 100%; 
+    height: auto;
+    border-radius: 8px; 
+    border: solid navy 5px;
+}
+
+/* Meet Team Results */
+#meet-team-results,
+#meet-individual-results {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+
+thead th {
+    position: sticky; /* Table Headers are shown while scrolling */
+    top: 0;
+    background-color: #004080; /* Dark background for contrast */
+    color: white;
+    padding: 10px;
+    text-align: left; 
+}
+
+#meet-team-results th, 
+#meet-team-results td,
+#meet-individual-results th, 
+#meet-individual-results td {
+    border: 1px solid #ccc; 
+    padding: 8px;
+    text-align: left; 
+}
+
+#meet-team-results tbody tr:nth-child(even),
+#meet-individual-results tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alternating row colors */
+}
+
+#meet-individual-results tbody tr,
+#meet-team-results tbody tr {
+    display: flex; /* Uses flex containers for mobile view */
+    flex-wrap: wrap; /* Wraps cells */
+    margin-bottom: 15px; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    background-color: white; 
+}
+
+#meet-individual-results tbody tr td,
+#meet-team-results tbody tr td {
+    flex: 1 1 auto; 
+    padding: 10px; 
+    text-align: left; 
+    color: #333; /* dark color  */
+}
+
+#meet-individual-results td:nth-child(4),
+#meet-team-results td:nth-child(3) { 
+    display: block; 
+    width: 100%; 
+}
+
+
+#meet-individual-results a {
+    color: #0000ff; /* Blue for light backgrounds */
+    text-decoration: none;
+}
+
+#meet-individual-results a:hover {
+    color: #0000ff; 
+}
+
+
+h1, h2, h3 {
+    font-family: 'Georgia', serif; 
+}
+
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a; 
+        color: #e0e0e0;
+    }
+
+    header {
+        background-color: #004080; 
+    }
+
+    #meetSummary {
+        background-color: #2b2b2b; 
+    }
+
+    #meet-team-results th, 
+    #meet-individual-results th,
+    #meet-team-results td, 
+    #meet-individual-results td {
+        border: 1px solid #333;
+        color: #e0e0e0; 
+    }
+
+    /* Even rows */
+    #meet-team-results tbody tr:nth-child(even),
+    #meet-individual-results tbody tr:nth-child(even) {
+        background-color: #ffffff; 
+        color: #333; /* Dark text on lighter rows */
+    }
+
+    /* Odd rows (dark) */
+    #meet-team-results tbody tr:nth-child(odd),
+    #meet-individual-results tbody tr:nth-child(odd) {
+    background-color: #3a3a3a; /* Lighter dark background for odd rows */
+    }
+
+    #meet-team-results tbody tr:nth-child(odd) td,
+    #meet-individual-results tbody tr:nth-child(odd) td {
+    color: #ffffff !important; /* Ensure white text color  */
+}
+
+
+    #meet-individual-results a {
+        color: #ffdd57; 
+    }
+
+    #meet-individual-results tbody tr:nth-child(even) a {
+        color: #0000ff; 
+    }
+
+    #meet-individual-results a:hover {
+        color: #ffdd57; 
+    }
+
+    thead th {
+        background-color: #333;
+        color: #e0e0e0;
+    }
+}
+
+
+/* Styling Home page*/
+#home-page {
+    font-family: 'Arial', sans-serif; 
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #000080; /* background */
+    color: white;
+    text-align: center; /
+}
+
+/* Styling Headers */
+#home-page h1 {
+    font-family: 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-top: 20px;
+}
+
+
+#home-page nav ul {
+    list-style: none; 
+    padding: 0;
+}
+
+#home-page nav ul li {
+    margin: 20px 0; 
+}
+
+
+#home-page nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem; 
+    transition: color 0.3s ease; 
+}
+
+
+#home-page nav ul li a:hover {
+    color: #ffdd57; 
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    #home-page nav ul li a {
+        transition: none; 
+    }
+    
+    #home-page nav ul li a:hover {
+        color: #ffdd57; 
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    #home-page {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+    }
+
+    #home-page nav ul li a {
+        color: #ffdd57; 
+    }
+    
+    #home-page nav ul li a:hover {
+        color: white; 
+    }
+}
+
