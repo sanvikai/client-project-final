@@ -70,10 +70,10 @@ section {
 /* photos for mobile */
 .photo {
     flex: 1 1 100%; /* photo can grow/shrink to adapt to screen size */
-    margin: 5px;
+    margin: 0;
 }
 
-img {
+#meetPhotoBook img {
     width: 100%; 
     height: auto;
     border-radius: 8px; 
@@ -231,6 +231,14 @@ h1, h2, h3 {
     margin-top: 20px;
 }
 
+/* Styling logo */
+#home-page img {
+    width: 80%; 
+    height: auto; 
+    margin: 20px auto;
+    display: block;
+}
+
 
 #home-page nav ul {
     list-style: none; 
@@ -239,6 +247,7 @@ h1, h2, h3 {
 
 #home-page nav ul li {
     margin: 20px 0; 
+    display: block;
 }
 
 
@@ -282,3 +291,51 @@ h1, h2, h3 {
     }
 }
 
+
+/* adjustments for tablet */
+@media (min-width: 768px) {
+    /* nav Bar */
+    nav ul li {
+        margin: 15px; 
+    }
+
+
+    /* Team and Individual Results tables */
+    #meet-team-results tbody tr,
+    #meet-individual-results tbody tr {
+        display: table-row; 
+    }
+
+    #meet-team-results td,
+    #meet-individual-results td {
+        padding: 12px;
+    }
+
+    
+    #home-page img {
+            width: 20%; 
+        }
+    
+}
+
+/* adjustments for desktop */
+@media (min-width: 1024px) {
+    /* Header */
+    header {
+        padding: 30px; 
+    }
+   
+   
+    
+
+    #meetPhotoBook img {
+        width: 10%; 
+    }
+
+    /* Meet Team Results tables */
+    #meet-team-results,
+    #meet-individual-results {
+        width: 80%; 
+        margin: 30px auto; 
+    }
+}

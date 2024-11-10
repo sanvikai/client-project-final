@@ -8,26 +8,26 @@ def create_sec_jamboree_womens_meet_html(csv_file, output_file):
             meetdata = list(reader)
         print(f"File read successfully. Generating HTML for {csv_file}...")
 
-        
+        # Extract meet details directly from the CSV data
         meet_name = meetdata[0][0]
         meet_date = meetdata[1][0]
         meet_description = ''.join(meetdata[3][:])
 
-       
+        # Adjusted indices for team and athlete data
         team_data_start = 7  
-        team_data_end = 14  
+        team_data_end = 19  # Adjust end index based on the number of teams
         athlete_data_start = team_data_end + 2  
         meet_teams = meetdata[team_data_start:team_data_end]  
         meet_athletes = meetdata[athlete_data_start:]  
 
-   
+        # Start HTML content creation
         html_content = f"""
         <!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8"> 
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>{meet_name} - Women's Junior Varsity Results</title>
+            <title>{meet_name} - Women's Varsity Results</title>
             <link rel="stylesheet" href="style.css">
             <style>
                 img {{
@@ -50,7 +50,7 @@ def create_sec_jamboree_womens_meet_html(csv_file, output_file):
                         <li><a href="#meetIndividualResults">Meet Individual Results</a></li>
                     </ul>
                 </nav>
-                <h1>{meet_name} - Women's Junior Varsity Results</h1>
+                <h1>{meet_name} - Women's Varsity Results</h1>
                 <h2>{meet_date}</h2>
             </header>
 
@@ -65,16 +65,16 @@ def create_sec_jamboree_womens_meet_html(csv_file, output_file):
                 <h2>Meet Photo Book</h2>
                 <div id="photoBook">
                     <div class="photo">
-                        <img src="secjamboree/IMG_2001.jpg" alt="{meet_name} Photo 1">
+                        <img src="secjamboree/IMG_3001.jpg" alt="{meet_name} Photo 1">
                     </div>
                     <div class="photo">
-                        <img src="secjamboree/IMG_2002.jpg" alt="{meet_name} Photo 2">
+                        <img src="secjamboree/IMG_3002.jpg" alt="{meet_name} Photo 2">
                     </div>
                     <div class="photo">
-                        <img src="secjamboree/IMG_2003.jpg" alt="{meet_name} Photo 3">
+                        <img src="secjamboree/IMG_3003.jpg" alt="{meet_name} Photo 3">
                     </div>
                     <div class="photo">
-                        <img src="secjamboree/IMG_2004.jpg" alt="{meet_name} Photo 4">
+                        <img src="secjamboree/IMG_3004.jpg" alt="{meet_name} Photo 4">
                     </div>
                 </div>
             </section>
@@ -92,7 +92,6 @@ def create_sec_jamboree_womens_meet_html(csv_file, output_file):
                     </thead>
                     <tbody>
         """
-
 
         for team in meet_teams:
             if len(team) == 3: 
@@ -127,7 +126,6 @@ def create_sec_jamboree_womens_meet_html(csv_file, output_file):
                     <tbody>
         """
 
-        
         for athlete in meet_athletes:
             if len(athlete) >= 6:  
                 place, grade, name, link, time, team = athlete[:6]
@@ -150,7 +148,6 @@ def create_sec_jamboree_womens_meet_html(csv_file, output_file):
         </html>
         """
 
-       
         print(f"Writing HTML to {output_file}")
         with open(output_file, 'w', encoding='utf-8') as file:
             file.write(html_content)
@@ -159,4 +156,6 @@ def create_sec_jamboree_womens_meet_html(csv_file, output_file):
         print(f"Error processing file {csv_file}: {e}")
 
 
-create_sec_jamboree_womens_meet_html("client-project/meets/SEC_Jamboree_#1_Womens_5000_Meters_Junior_Varsity_24.csv", "newMeet_sec_jamboree_female.html")
+# Run the function with the updated file names
+create_sec_jamboree_womens_meet_html("/Users/sanvikainturi/Desktop/339/client-project-final/meets/SEC_Jamboree_#1_Womens_5000_Meters_Varsity_24.csv", "newMeet_sec_jamboree_womens_VAR.html")
+
